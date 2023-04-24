@@ -180,7 +180,7 @@ export default function Details() {
   return (
     <div>
         <div className='headbar'>
-            <span className='eLogo'><Link className='eLogo-link-router-dom' to={`/`}>z!</Link></span>
+            <span className='eLogo'><Link className='eLogo-link-router-dom' to={`/`}>t!</Link></span>
             <div className='accountManage'>
                 <button className='LogInButton'><a className='a1' onClick={()=>setLogin(true)}>Log In</a></button>
                 <div className='CreateAcc'>

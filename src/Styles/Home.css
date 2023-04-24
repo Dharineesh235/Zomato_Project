@@ -1,7 +1,7 @@
 .logo {
     text-align: center;
     font-size: 65px;
-    color: rgb(246, 1, 1);
+    color: rgba(133, 0, 0, 0.918);
     background: white;
     width: 90px;
     height: 95px;
@@ -12,7 +12,7 @@
     margin-right: 40%;
     font-family: Poppins;
     font-weight: bold;
-    border: solid 4px rgb(209, 3, 3);
+    /* border: solid 4px rgb(209, 3, 3); */
 }
 .e{
     margin-top: -8px;
@@ -42,13 +42,14 @@
     width: 245px;
     color: rgb(21, 21, 21);
     background-color: whitesmoke;
-    border: none;
-    border-radius: 0px;
+    border: 3px solid skyblue;
+    border-radius: 8px;
     font-size: 15px;
     opacity: 0.7;
     margin-right: 21px;
     margin-bottom: 25px;
     float: left;
+    cursor: pointer;
 }
 .locationDropdown:hover{
     color: rgb(92, 91, 91);
@@ -59,10 +60,11 @@
     width: 310px;
     color: gray;
     border: none;
-    border-radius: 0px;
+    border-radius: 8px;
     font-size: 15px;
     opacity: 0.7;
     float: left;
+    cursor: pointer;
 }
 
 .search {
@@ -102,8 +104,18 @@
     margin-right: 30px;
     margin-bottom: 30px;
     margin-left: 20px;
-    box-shadow: 0 3px 6px gray;
+    box-shadow: 10px 13px 10px  gray;
+    border-radius: 15px;
     float: left;
+    overflow: hidden;
+    border: px solid gray;
+}
+.titleComponent-img{
+    width: 100%;
+    object-fit: cover;
+    height: 150px;
+    transition: transform 450ms;
+    border-radius: 15px;
 }
 
 .tileComponent1 {
@@ -115,6 +127,7 @@
     width: 50%;
     float: left;
     margin-top: 20px;
+    margin-left: 17px;
 }
 
 .componentHeading {
@@ -272,21 +285,34 @@
     color: inherit;
 }
 .filters-link:hover{
-    text-decoration: underline;
+    text-shadow: 0 0 1px #fff, 
+                 0 0 2px #f6f5f5,
+                 0 0 4px #04c5fa,
+                 0 0 5px #04c5fa,
+                 0 0 6px #04c5fa,
+                 0 0 7px #04c5fa;
+    font-size: larger;
 }
 
 #notebooks ul li:hover {
     background-color: #ccc;
 }  
 .search-Icon{
-    color: rgb(243, 242, 242);
-    /* background-color: white; */
+    color: rgb(245, 244, 249);
     margin-top: 10px;
     margin-left: 15px;
-    width: 20px;
+    width: 90px;
     cursor: pointer;
-    font-size: 2.5rem;  
-}               
+    border-radius: 10%;
+}   
+.searchIcon-div{
+    background-color: #700202;
+    padding-right: 12px;
+    align-items: center;
+    border-radius: 50%;
+    margin-left: 10px;
+}            
 .MuiSvgIcon-root{
+    transition: translate 250px;
     font-size: 2.5rem;
 }

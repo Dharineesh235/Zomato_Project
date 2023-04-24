@@ -39,7 +39,7 @@ export default class Wallpaper extends Component {
 
     return (
         <div>
-        <img src={'./assets/homepageimg.png'} width='100%' height='450' />
+        <img src={'https://png.pngtree.com/background/20210711/original/pngtree-blue-chalkboard-simple-food-cover-rice-cooker-e-commerce-banner-picture-image_1096475.jpg'} width='100%' height='450' />
 
         <div className="logo">
             <p className="e">z!</p>
@@ -59,7 +59,7 @@ export default class Wallpaper extends Component {
                     <option value="0" disabled selected>Select</option>
                     {this.state.restaurants.map((item,index)=><option key={item.name} value={item.name}>{item.name}</option>)}
                 </select>
-               {this.state.rName && <Link to={`/details/${this.state.rName}`}> <SearchIcon className='search-Icon'/> </Link>}
+               {this.state.rName && <div className='searchIcon-div'><Link to={`/details/${this.state.rName}`}> <SearchIcon className='search-Icon'/> </Link></div>}
             </div>
             {/* {SearchIcon} */}
            
