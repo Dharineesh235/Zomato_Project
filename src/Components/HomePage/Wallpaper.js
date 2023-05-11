@@ -39,13 +39,13 @@ export default class Wallpaper extends Component {
 
     return (
         <div>
-        <img src={'https://png.pngtree.com/background/20210711/original/pngtree-blue-chalkboard-simple-food-cover-rice-cooker-e-commerce-banner-picture-image_1096475.jpg'} width='100%' height='450' />
+        <img src={'https://png.pngtree.com/background/20210710/original/pngtree-hot-pot-gourmet-food-poster-picture-image_1025936.jpg'} width='100%' height='450' />
 
         <div className="logo">
             <p className="e">z!</p>
         </div>
         <div className="headings">
-            Find the best restaurants, cafes, bars 
+            <b>Find the best restaurants, cafes, bars </b>
                 </div>
         <div className="locationSelector">
             <div id='cityNoteBooks'>

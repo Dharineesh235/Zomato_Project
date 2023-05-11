@@ -27,6 +27,11 @@
     margin: auto;
     font-size: 36px;
     top: -240px;
+    text-decoration:underline;
+    /* text-decoration-color: #192f60; */
+}
+select{
+    border: 1px solid maroon;
 }
 
 .locationSelector {
@@ -45,7 +50,7 @@
     border: 3px solid skyblue;
     border-radius: 8px;
     font-size: 15px;
-    opacity: 0.7;
+    opacity: 0.8;
     margin-right: 21px;
     margin-bottom: 25px;
     float: left;
@@ -58,7 +63,7 @@
 .restaurantsinput {
     height: 40px;
     width: 310px;
-    color: gray;
+    color: rgb(112, 112, 112);
     border: none;
     border-radius: 8px;
     font-size: 15px;
@@ -284,7 +289,7 @@
     text-decoration: none;
     color: inherit;
 }
-.filters-link:hover{
+/* .filters-link:hover{
     text-shadow: 0 0 1px #fff, 
                  0 0 2px #f6f5f5,
                  0 0 4px #04c5fa,
@@ -292,7 +297,7 @@
                  0 0 6px #04c5fa,
                  0 0 7px #04c5fa;
     font-size: larger;
-}
+} */
 
 #notebooks ul li:hover {
     background-color: #ccc;
@@ -311,6 +316,7 @@
     align-items: center;
     border-radius: 50%;
     margin-left: 10px;
+    border: 2px solid white;
 }            
 .MuiSvgIcon-root{
     transition: translate 250px;
