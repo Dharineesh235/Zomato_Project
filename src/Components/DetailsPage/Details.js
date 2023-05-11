@@ -4,29 +4,21 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { json, Link, useParams } from 'react-router-dom';
 import Modal from 'react-modal';
-import GoogleButton from 'react-google-button';
-import GoogleLogin from 'react-google-login';
-import FacebookLogin from 'react-facebook-login';
 import { getByDisplayValue, getDefaultNormalizer } from '@testing-library/react';
 import { isDisabled } from '@testing-library/user-event/dist/utils';
+import ManageAccount from '../ManageAccount/ManageAccount';
 
 
 export default function Details() {
 
     const {rName}=useParams();
 
-    const[login,setLogin]=useState(false);
-    const[createAcc,setAcc]=useState(false);
+    // const[login,setLogin]=useState(false);
+    // const[createAcc,setAcc]=useState(false);
     const [placeOrder,setPlaceOrder]=useState(false);
     const [menu,setMenu]=useState([]);
     const[restaurant,SetRestaurant]=useState({});
     const [totalPrice,setTotalPrice]=useState(0);
-    const [userName,setUserName]=useState(undefined);
-    const [userNewName,setUserNewName]=useState(undefined);
-    const [usernewEmail,setUsernewEmail]=useState(undefined);
-    const [PassWord,setPassword]=useState(undefined);
-    const [newPassWord,setnewPassword]=useState(undefined);
-    const [rePassword,setRePassword]=useState(undefined);
     const [payment,setPayment]=useState(false);
     const [orderName,setOrderName]=useState(undefined);
     const [orderMail,setOrderMail]=useState(undefined);
@@ -39,33 +31,7 @@ export default function Details() {
     .then((data)=>SetRestaurant(data.data))
     },[])
 
-    const customStyles = {
-        content: {
-          height:'65%',
-          width:'30%',  
-          top: '50%',
-          left: '50%',
-          right: 'auto',
-          bottom: 'auto',
-          marginRight: '-50%',
-          transform: 'translate(-50%, -50%)',
-          boxShadow:' 3px 3px 9px 2px grey',
-        },
-      };
-    const customStyles2 = {
-        content: {
-          height:'70%',
-          width:'25%',  
-          top: '50%',
-          left: '40%',
-        //   top:'0',
-        //   right: 'auto',
-          bottom: 'auto',
-        //   marginRight: '-50%',
-          transform: 'translate(-50%, -50%)',
-          boxShadow:' 3px 3px 9px 2px grey'
-        },
-      };  
+    
     const customStyles3 = {
         content: {
           height:'90%',
@@ -110,9 +76,6 @@ export default function Details() {
         })
     }
 
-    const handleSubmit=(e)=>{
-
-    }
       
     let loadScript=async()=>{
         let script=document.createElement('script');
@@ -179,15 +142,7 @@ export default function Details() {
     
   return (
     <div>
-        <div className='headbar'>
-            <span className='eLogo'><Link className='eLogo-link-router-dom' to={`/`}>z!</Link></span>
-            <div className='accountManage'>
-                <button className='LogInButton'><a className='a1' onClick={()=>setLogin(true)}>Log In</a></button>
-                <div className='CreateAcc'>
-                    <button className='AccInButton'><a className='a1' onClick={()=>setAcc(true)}>Create Account</a></button>
-                </div>
-            </div>
-        </div>
+        <ManageAccount/>
         <center>
         <div className='imageTag'>
             <img src={restaurant.thumb} height='430px' width='95%'></img>
@@ -234,142 +189,6 @@ export default function Details() {
             </div>
         </div>
 
-
-        
-        <Modal
-         isOpen={login}
-         style={customStyles}
-         contentLabel="Example Modal"
-        >
-           <div > 
-                <h2 className='modelHead'>Login</h2> 
-                <button className='x' onClick={()=>{
-                    setLogin(false);
-                    setPassword(undefined);
-                    setUserName(undefined);
-                }}>x</button>
-            </div>
-            <br/>
-                <center>
-                <div className='logInbtns'>
-                    <div>
-                        <input className='inputBox' type='text' placeholder='Enter your User Name' onChange={(e)=>e.target.value=='' ? setUserName(undefined):setUserName(e.target.value)}/><br/><br/>
-                        <input className='inputBox' type='password' placeholder='Enter Your Password' onChange={(e)=>e.target.value=='' ? setPassword(undefined):setPassword(e.target.value)}/><br/><br/>
-                        <button className='btn btn-primary' disabled={userName!=undefined&&PassWord!=undefined ? false:true}>LogIn</button>
-                    </div>
-                <p className='up-in-parent'>If no Account use <b className='up-in' onClick={()=>{setAcc(true);setLogin(false)}}>Sign-Up</b></p>    
-                       
-                <div className='google-fb'>
-                <GoogleButton
-                    clientId="1021090884211-u92l9v86p37r96dfq9b11q2e2asl4mol.apps.googleusercontent.com"
-                    buttonText="LOGIN WITH GOOGLE"
-                    onSuccess={responseGoogle}
-                    onFailure={responseGoogle}
-                    cookiePolicy={'single_host_origin'}
-                /> <br/>
-                {/* <GoogleButton
-                    onClick={() => { console.log('Google button clicked') }}
-                    type="dark"
-                    disabled={false}
-                    label='LOGIN WITH GOOGLE'
-                ></GoogleButton> <br/> */}
-                <FacebookLogin
-                    appId="859576005343218"
-                    autoLoad={false}
-                    fields="name,email,picture"
-                    callback={responseFacebook} 
-                    icon="fa-facebook"
-                    textButton='SIGN-IN WITH FACEBOOK'
-                ></FacebookLogin>
-                </div>
-
-                </div> 
-                </center>   
-        </Modal>
-       
-        <Modal
-         isOpen={createAcc}
-         style={customStyles2}
-         contentLabel="Example Modal"
-        >
-           <div> 
-                <h2 className='modelHead'> Create Account</h2>
-                <button className='x' onClick={()=>{
-                    setAcc(false);
-                    setUserName(undefined);
-                    setPassword(undefined);
-                }}>x</button>
-            </div><br/>
-                {/* <center> */}
-                <div className='logInbtns'>
-                    <div>
-                        <form onSubmit={handleSubmit}>
-                        <input 
-                            className='inputBox'
-                            type='text'
-                            placeholder='User Name' 
-                            onChange={
-                               (e)=>e.target.value=='' ? setUserNewName(undefined):setUserNewName(e.target.value)
-                            }/>
-                        <br/><br/>
-                        <input 
-                            className='inputBox'
-                            type='email'
-                            placeholder='User Email' 
-                            onChange={
-                               (e)=>e.target.value=='' ? setUsernewEmail(undefined):setUsernewEmail(e.target.value)
-                            }/>
-                        <br/><br/>
-                        <input 
-                            className='inputBox'
-                            type='password'
-                            placeholder='Password'
-                            onChange={
-                                (e)=>e.target.value=='' ? setnewPassword(undefined):setnewPassword(e.target.value)
-                            }/>
-                        <br/><br/>
-                        <input 
-                            className='inputBox'
-                            type='password' 
-                            placeholder='Re-Enter Password'
-                            onChange={
-                                (e)=>e.target.value=='' ? setRePassword(undefined):setRePassword(e.target.value)
-                            }/>
-                        <br/><br/>
-                        <button 
-                            type='submit'
-                            className='btn btn-primary' 
-                            disabled={userNewName!=undefined&&usernewEmail!=undefined&&newPassWord!=undefined&&rePassword==newPassWord ? false:true} 
-                        >
-                            Create Account
-                        </button>
-                        </form>
-                    </div>
-                       
-                <div className='google-fb'>
-                <GoogleLogin
-                    clientId="1021090884211-u92l9v86p37r96dfq9b11q2e2asl4mol.apps.googleusercontent.com"
-                    buttonText="SIGN-UP WITH GOOGLE"
-                    onSuccess={responseGoogle}
-                    onFailure={responseGoogle}
-                    cookiePolicy={'single_host_origin'}
-                /> <br/> <br/> 
-
-                <FacebookLogin
-                    appId="859576005343218"
-                    buttonText="SIGN-Up"
-                    autoLoad={false}
-                    fields="name,email,picture"
-                    callback={responseFacebook}
-                    icon="fa-facebook"
-                    textButton='&nbsp;&nbsp;SIGN-UP WITH FACEBOOK'
-                ></FacebookLogin>
-                </div>
-
-                </div> 
-                {/* </center>    */}
-        </Modal>
-        
 
         <Modal
           isOpen={placeOrder}

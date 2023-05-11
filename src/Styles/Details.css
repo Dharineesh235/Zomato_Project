@@ -7,13 +7,15 @@ div{
     background-color: maroon;
     width: 100%;
     padding: 15px;
+    display: flex;
+    justify-content: space-between;
 }
 .eLogo{
     font-size: 35px;
     color: maroon;
     padding-left: 14px;
     padding-right: 14px;
-    margin-left: 20px;
+    
     display: inline-block;
     background-color: white;
     border-radius: 50%;
@@ -41,14 +43,22 @@ div{
 }
 .accountManage{
     display: flex;
-    margin-left: 80%;
+    justify-content: left;
+    /* margin-left: 80%;
     margin-right: 5%;
-    margin-top: -45px;
-    top: 2%;
+    margin-top: -45px; */
+    /* top: 2%; */
     padding: 2px;
     font-family: Poppins;
     background-color: inherit;
-
+}
+.welcomeUser{
+    color: white;
+    font-size: 2em;
+}
+.LogInButton{
+    width: 100%;
+    margin-right: 50px;
 }
 .AccInButton{
     border: solid 1px white;
@@ -258,6 +268,53 @@ input[type=number]::-webkit-inner-spin-button{
 }
 .logInbtns{
     align-self: center;
+}
+.log-msg-red{
+    margin-top: 10px;
+    /* background-image: linear-gradient(to right transparent, rgb(242, 52, 10), transparent); */
+    background-image: linear-gradient(to right, white, rgb(249, 122, 113), white);
+    color: rgb(85, 2, 2);
+    animation: fadeBackground 4s;
+    animation-fill-mode: forwards;
+}
+.log-msg-green{
+    margin-top: 10px;
+    /* background-image: linear-gradient(to right transparent, rgb(242, 52, 10), transparent); */
+    background-image: linear-gradient(to right, white, rgb(130, 232, 130), white);
+    color: rgb(2, 81, 2);
+    animation: fadeBackground 4s;
+    animation-fill-mode: forwards;
+}
+  
+@keyframes fadeBackground {
+    from { opacity: 1.0; }
+    to { opacity: 0; }
+  }
+.log-msg-red p{
+    background-image: linear-gradient(to right transparent, rgb(242, 52, 10), transparent);
+    color: rgb(87, 1, 1);
+    padding: 5px 10px;
+}
+.log-msg-green p{
+    background-image: linear-gradient(to right transparent, rgb(242, 52, 10), transparent);
+    color: rgb(1, 71, 1);
+    padding: 5px 10px;
+}
+.log-out-button-container{
+    display:flex;
+    justify-content: start;
+}
+.log-out-button-container > div > button{
+    margin: 20px;
+    border: none;
+    border-radius: 7px;
+    padding: 7px;
+}
+#Confirm{
+    background-color: skyblue;
+}
+#Cancel{
+    background-color: rgb(242, 126, 126);
 }
 /* .paynow-div{
     position: fixed;

@@ -11,7 +11,7 @@ export default class MealType extends Component {
           <div className="col-sm-12 col-md-6 col-lg-4 titleContainer-parent">
           <div className="tileContainer">
               <div className="tileComponent1">
-                  <img className='titleComponent-img' src= {`./${image}`} />
+                  <img className='titleComponent-img' src= {image} />
               </div>
               <div className="tileComponent2">
                   <div className="componentHeading">
