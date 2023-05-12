@@ -46,29 +46,28 @@ const ManageAccount = () => {
 
     const customStyles = {
         content: {
-          height:'65%',
-          width:'30%',  
-          top: '50%',
-          left: '50%',
-          right: 'auto',
-          bottom: 'auto',
-          marginRight: '-50%',
-          transform: 'translate(-50%, -50%)',
+          height:'90%',
+          width:'90%',  
+        //   top: '50%',
+        //   left: '50%',
+        //   right: 'auto',
+        //   bottom: 'auto',
+        //   transform: 'translate(-50%, -50%)',
           boxShadow:' 3px 3px 9px 2px grey',
         },
     };
 
     const customStyles2 = {
         content: {
-          height:'70%',
-          width:'25%',  
-          top: '50%',
-          left: '40%',
+          height:'90%',
+          width:'90%',  
+        //   top: '50%',
+        //   left: '40%',
         //   top:'0',
         //   right: 'auto',
-          bottom: 'auto',
+        //   bottom: 'auto',
         //   marginRight: '-50%',
-          transform: 'translate(-50%, -50%)',
+        //   transform: 'translate(-50%, -50%)',
           boxShadow:' 3px 3px 9px 2px grey'
         },
     };
@@ -150,11 +149,11 @@ const ManageAccount = () => {
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify(loginData)
         })
-        let data = await res.json()
-        setLoggedUserData(data.data[0])
-        console.log(data.data[0])
-        let msg = data.message
-        setLoginMsg(msg)
+        let data = await res.json();
+        data.data.length && setLoggedUserData(data.data[0]);
+        console.log(data.data[0]);
+        let msg = data.message;
+        setLoginMsg(msg);
     
         setTimeout(()=>{
             setLoginMsg("");
@@ -196,9 +195,9 @@ const ManageAccount = () => {
                 }}>x</button>
             </div>
             <br/>
-                <center>
+                
                 <div className='logInbtns'>
-                    <div>
+                    <div >
                         <input className='inputBox' type='email' placeholder='Enter your Email ID' 
                             onChange={(e)=>{
                                 handleUser(e); 
@@ -213,44 +212,47 @@ const ManageAccount = () => {
                         <br/><br/>
                         <button className='btn btn-primary' onClick={loginUser} disabled={userEmail!=undefined&&PassWord!=undefined ? false:true}>LogIn</button>
                     </div>
+                </div> <br/>
+                <div>
                     {login_msg != "" && login_msg !== "Log in Successful" &&
-                        <div className = 'log-msg-red'>
+                        <div className = 'logInbtns log-msg-red'>
                             <p>{login_msg}</p>
                         </div>
                     }
                     {login_msg != "" && login_msg === "Log in Successful" && 
-                        <div className = 'log-msg-green'>
+                        <div className = 'logInbtns log-msg-green'>
                         <p>{login_msg}</p>
                     </div>
                     }
-                <p className='up-in-parent'>If no Account use <b className='up-in' onClick={()=>{setAcc(true);setLogin(false)}}>Sign-Up</b></p>    
-                       
-                <div className='google-fb'>
-                <GoogleButton
-                    clientId="1021090884211-u92l9v86p37r96dfq9b11q2e2asl4mol.apps.googleusercontent.com"
-                    buttonText="LOGIN WITH GOOGLE"
-                    onSuccess={responseGoogle}
-                    onFailure={responseGoogle}
-                    cookiePolicy={'single_host_origin'}
-                /> <br/>
-                {/* <GoogleButton
-                    onClick={() => { console.log('Google button clicked') }}
-                    type="dark"
-                    disabled={false}
-                    label='LOGIN WITH GOOGLE'
-                ></GoogleButton> <br/> */}
-                <FacebookLogin
-                    appId="859576005343218"
-                    autoLoad={false}
-                    fields="name,email,picture"
-                    callback={responseFacebook} 
-                    icon="fa-facebook"
-                    textButton='SIGN-IN WITH FACEBOOK'
-                ></FacebookLogin>
+                    <div className='logInbtns'>
+                        <p className='up-in-parent'>If no Account use <b className='up-in' onClick={()=>{setAcc(true);setLogin(false)}}>Sign-Up</b></p>    
+                    </div>
+                </div>
+                 <div className='logInbtns-gf'>
+                    <div>
+                        <GoogleButton
+                            clientId="1021090884211-u92l9v86p37r96dfq9b11q2e2asl4mol.apps.googleusercontent.com"
+                            buttonText="LOGIN WITH GOOGLE"
+                            onSuccess={responseGoogle}
+                            onFailure={responseGoogle}
+                            cookiePolicy={'single_host_origin'}
+                        /> 
+                    </div><br/>
+
+                    <div>
+                        <FacebookLogin
+                            appId="859576005343218"
+                            autoLoad={false}
+                            fields="name,email,picture"
+                            callback={responseFacebook} 
+                            icon="fa-facebook"
+                            textButton='SIGN-IN WITH FACEBOOK'
+                        />
+                    </div><br/>
                 </div>
 
-                </div> 
-                </center>   
+            
+  
         </Modal>
 
         <Modal
@@ -291,8 +293,9 @@ const ManageAccount = () => {
             </div><br/>
                 {/* <center> */}
             <div className='logInbtns'>
-                    <div>
-                        <form onSubmit={handleSubmit}>
+                <div>
+                 <form onSubmit={handleSubmit}>
+                   
                         <input 
                             className='inputBox'
                             type='text'
@@ -332,6 +335,7 @@ const ManageAccount = () => {
                             }
                             }/>
                         <br/><br/>
+                   <br/>
                         <button 
                             type='submit'
                             className='btn btn-primary' 
@@ -340,30 +344,31 @@ const ManageAccount = () => {
                         >
                             Create Account
                         </button>
-                        </form>
+                    </form>
                     </div>
-                       
-                <div className='google-fb'>
-                <GoogleLogin
-                    clientId="1021090884211-u92l9v86p37r96dfq9b11q2e2asl4mol.apps.googleusercontent.com"
-                    buttonText="SIGN-UP WITH GOOGLE"
-                    onSuccess={responseGoogle}
-                    onFailure={responseGoogle}
-                    cookiePolicy={'single_host_origin'}
-                /> <br/> <br/> 
+            </div> <br/>
+            <div className='logInbtns-gf'>
+                    <div><GoogleLogin
+                        clientId="1021090884211-u92l9v86p37r96dfq9b11q2e2asl4mol.apps.googleusercontent.com"
+                        buttonText="SIGN-UP WITH GOOGLE"
+                        onSuccess={responseGoogle}
+                        onFailure={responseGoogle}
+                        cookiePolicy={'single_host_origin'}
+                        /> 
+                    </div><br/>
 
-                <FacebookLogin
-                    appId="859576005343218"
-                    buttonText="SIGN-Up"
-                    autoLoad={false}
-                    fields="name,email,picture"
-                    callback={responseFacebook}
-                    icon="fa-facebook"
-                    textButton='&nbsp;&nbsp;SIGN-UP WITH FACEBOOK'
-                ></FacebookLogin>
+                    <div>
+                        <FacebookLogin
+                            appId="859576005343218"
+                            buttonText="SIGN-Up"
+                            autoLoad={false}
+                            fields="name,email,picture"
+                            callback={responseFacebook}
+                            icon="fa-facebook"
+                            textButton='&nbsp;&nbsp;SIGN-UP WITH FACEBOOK'
+                        ></FacebookLogin>
+                    </div>
                 </div>
-
-            </div> 
                 {/* </center>    */}
         </Modal>
     </>

@@ -39,32 +39,32 @@ export default class Wallpaper extends Component {
 
     return (
         <div>
-        <img src={'https://png.pngtree.com/background/20210710/original/pngtree-hot-pot-gourmet-food-poster-picture-image_1025936.jpg'} width='100%' height='450' />
+            <img src={'https://png.pngtree.com/background/20210710/original/pngtree-hot-pot-gourmet-food-poster-picture-image_1025936.jpg'} width='100%' height='450' />
 
-        <div className="logo">
-            <p className="e">z!</p>
-        </div>
-        <div className="headings">
-            <b>Find the best restaurants, cafes, bars </b>
-                </div>
-        <div className="locationSelector">
-            <div id='cityNoteBooks'>
-                <select className="locationDropdown" onChange={this.fetchRestaurants}>
-                <option value="0" disabled selected>Select</option>
-                {DropDownList}
-                </select>
+            <div className="logo">
+                <p className="e">z!</p>
             </div>
-            <div id="notebooks" >
-                <select className="restaurantsinput"  onChange={this.setRname}>
+            <div className="headings">
+                <b>Find the best restaurants, cafes, bars </b>
+            </div>
+            <div className="locationSelector">
+                <div id='cityNoteBooks'>
+                    <select className="locationDropdown" onChange={this.fetchRestaurants}>
                     <option value="0" disabled selected>Select</option>
-                    {this.state.restaurants.map((item,index)=><option key={item.name} value={item.name}>{item.name}</option>)}
-                </select>
-               {this.state.rName && <div className='searchIcon-div'><Link to={`/details/${this.state.rName}`}> <SearchIcon className='search-Icon'/> </Link></div>}
+                    {DropDownList}
+                    </select>
+                </div>
+                <div id="notebooks" >
+                    <select className="restaurantsinput"  onChange={this.setRname}>
+                        <option value="0" disabled selected>Select</option>
+                        {this.state.restaurants.map((item,index)=><option key={item.name} value={item.name}>{item.name}</option>)}
+                    </select>
+                {this.state.rName && <div className='searchIcon-div'><Link to={`/details/${this.state.rName}`}> <SearchIcon className='search-Icon'/> </Link></div>}
+                </div>
+                {/* {SearchIcon} */}
+            
             </div>
-            {/* {SearchIcon} */}
-           
-        </div>
-    </div >
+        </div >
     )
   }
 }

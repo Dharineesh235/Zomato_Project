@@ -35,13 +35,13 @@ export default function Details() {
     const customStyles3 = {
         content: {
           height:'90%',
-          width:'60%',  
-          top: '50%',
-          left: '50%',
-          right: 'auto',
-          bottom: 'auto',
-          marginRight: '-50%',
-          transform: 'translate(-50%, -50%)',
+          width:'90%',  
+        //   top: '50%',
+        //   left: '50%',
+        //   right: 'auto',
+        //   bottom: 'auto',
+        //   marginRight: '-50%',
+        //   transform: 'translate(-50%, -50%)',
           boxShadow:' 3px 3px 9px 2px grey',
         },
         MediaQueryList:{}
@@ -61,12 +61,12 @@ export default function Details() {
     // console.log(s);
     // console.log([...menu]);
 
-    const responseFacebook = (response) => {
-        console.log(response);
-      }
-    const responseGoogle = (response) => {
-        console.log(response);
-      }
+    // const responseFacebook = (response) => {
+    //     console.log(response);
+    //   }
+    // const responseGoogle = (response) => {
+    //     console.log(response);
+    //   }
 
     const numberLimit=()=>{
         document.querySelectorAll('input[type="number"]').forEach(input=>{
@@ -261,58 +261,67 @@ export default function Details() {
         >
             <div>
                 <header className='paynow-div'> 
-                <span><button className='x' onClick={()=>{setPayment(false)}}>x</button></span>
-                <span><h2>Enter Details and Pay</h2></span> <br/>
-                <div>
-                    <h1 className='paymentModelh1'>{rName}</h1>
-                    <button
-                    disabled={orderName!=undefined && orderMail!=undefined && orderNumber!=undefined && orderNumber.length==10? false:true}
-                    className={orderName!=undefined && orderMail!=undefined && orderNumber!=undefined && orderNumber.length==10? 'amountbtn btn btn-success': 'amountbtn btn btn-danger'}
-                    onClick={()=>{
-                        makePayment();
-                        setTimeout(() => {
-                            setPayment(false);
-                            setPlaceOrder(false);
-                            setTotalPrice(0);
-                        }, 0);
-                    }}
-                    >
-                        &#8377;&nbsp;{totalPrice}
-                    </button>
-                </div>
+                    <span><button className='x' onClick={()=>{setPayment(false)}}>x</button></span>
+                    <span><h2>Enter Details and Pay</h2></span> <br/>
+                    <div>
+                        <h1 className='paymentModelh1'>{rName}</h1>
+                        <button
+                        disabled={orderName!=undefined && orderMail!=undefined && orderNumber!=undefined && orderNumber.length==10? false:true}
+                        className={orderName!=undefined && orderMail!=undefined && orderNumber!=undefined && orderNumber.length==10? 'amountbtn btn btn-success': 'amountbtn btn btn-danger'}
+                        onClick={()=>{
+                            makePayment();
+                            setTimeout(() => {
+                                setPayment(false);
+                                setPlaceOrder(false);
+                                setTotalPrice(0);
+                            }, 0);
+                        }}
+                        >
+                            &#8377;&nbsp;{totalPrice}
+                        </button>
+                    </div>
                 </header>
+            </div>
 
-                <input 
-                    id='nameInput' 
-                    className='input-1' 
-                    type='text' 
-                    placeholder='Enter Name'
-                    onChange={
-                        (e)=>e.target.value=='' ? setOrderName(undefined):setOrderName(e.target.value)
-                     }
-                />
+            <div className='inputs-final-container'>
+
+                <div>
+                    <input 
+                        id='nameInput' 
+                        className='inputBox-final' 
+                        type='text' 
+                        placeholder='Enter Name'
+                        onChange={
+                            (e)=>e.target.value=='' ? setOrderName(undefined):setOrderName(e.target.value)
+                        }
+                    />
+                </div>
                 
-                <input 
-                    id='mailInput' 
-                    className='input' 
-                    type='email' 
-                    placeholder='Enter Mail-Id'
-                    onChange={
-                        (e)=>e.target.value=='' ? setOrderMail(undefined):setOrderMail(e.target.value)
-                     }
-                />
+                <div>
+                    <input 
+                        id='mailInput' 
+                        className='inputBox-final' 
+                        type='email' 
+                        placeholder='Enter Mail-Id'
+                        onChange={
+                            (e)=>e.target.value=='' ? setOrderMail(undefined):setOrderMail(e.target.value)
+                        }
+                    />
+                </div>
             
-                <input 
-                    id='phoneInput' 
-                    className='input' 
-                    type='number'
-                    maxLength='10' 
-                    pattern="[1-9]{1}[0-9]{9}" 
-                    placeholder='Enter Mobile Number'
-                    onChange={
-                        (e)=>e.target.value=='' ? setOrderNumber(undefined):setOrderNumber(e.target.value)
-                     }
-                />
+                <div>
+                    <input 
+                        id='phoneInput' 
+                        className='inputBox-final' 
+                        type='number'
+                        maxLength='10' 
+                        pattern="[1-9]{1}[0-9]{9}" 
+                        placeholder='Enter Mobile Number'
+                        onChange={
+                            (e)=>e.target.value=='' ? setOrderNumber(undefined):setOrderNumber(e.target.value)
+                        }
+                    />
+                </div>
             </div>
         </Modal>
         {numberLimit()}

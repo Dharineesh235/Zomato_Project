@@ -167,7 +167,9 @@ div{
     background-color: rgb(250, 72, 72);
 }
 .google-fb{
-    margin-top: 8%;
+    /* margin-top: 8%; */
+    /* text-align: center; */
+    /* margin-top: 20px; */
 }
 .orderButton{
     display: flex;
@@ -175,8 +177,25 @@ div{
     margin-right: 15px;
 }
 .inputBox{
-    width: 80%;
-    padding: 10px;
+    /* width: 80%; */
+    padding: 8px 20px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: wheat;
+}
+.inputBox-final{
+    padding: 8px 20px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: wheat;
+    margin-top: 10px;
+
+}
+.inputs-final-container{
+    align-items: center;
+    text-align: center;
 }
 .itemName{
     display:inline;
@@ -267,7 +286,17 @@ input[type=number]::-webkit-inner-spin-button{
     align-items: center;
 }
 .logInbtns{
-    align-self: center;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+.logInbtns-gf{
+    text-align: center;
+    align-items: center;
+}
+.logInbtns-gf div{
+    display: inline-block;
+    margin-bottom: 10px;
 }
 .log-msg-red{
     margin-top: 10px;

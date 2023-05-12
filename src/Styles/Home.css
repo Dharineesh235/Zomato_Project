@@ -26,7 +26,7 @@
     position: relative;
     margin: auto;
     font-size: 36px;
-    top: -240px;
+    /* top: -240px; */
     text-decoration:underline;
     /* text-decoration-color: #192f60; */
 }
@@ -36,6 +36,8 @@ select{
 
 .locationSelector {
     position: relative;
+    display: flex;
+    justify-content: center;
     top: -238px;
     margin-left: 29.5%;
     margin-right: 20%;
@@ -196,18 +198,27 @@ select{
 .App-link {
     color: #61dafb;
 }
+@media only screen and (max-width: 900px){
+    .locationSelector{
+        display: block;
+        align-items: center;
+        text-align: center;
+    }
+    .locationSelector div{
+        display: block;
+    }
+}
 
 @media only screen and (max-width: 600px) {
-    .restaurantsinput {
+     .restaurantsinput {
         height: 40px;
-        width: 245px;
         color: gray;
         border: none;
         border-radius: 0px;
         font-size: 15px;
         opacity: 0.7;
         float: left;
-    }
+    } 
     .logo {
         text-align: center;
         font-size: 65px;
@@ -223,12 +234,15 @@ select{
         font-family: Poppins;
         font-weight: bold;
     }
-    .locationSelector {
-        position: relative;
-        top: -238px;
-        margin-left: 23.5%;
-        margin-right: 20%;
+     .locationSelector {
+        margin-top: -50px;
+        display: block;
         text-align: center;
+        align-items: center;
+
+    }
+    .locationSelector div{ 
+        display: block;
     }
     .search {
         position: absolute !important;
@@ -236,12 +250,14 @@ select{
         margin: 2% 0px;
         top: 73px !important;
     }
-    #notebooks {
-        position: absolute;
-        left: 28%;
-        width: 350px;
+     #notebooks {
+        width: 100%;
         border-radius: 5px;
-        max-height: 450px;
+        /* max-height: 450px; */
+    } 
+    #cityNoteBooks{
+        width: 100%;
+        border-radius: 5px
 
     }
 }
