@@ -20,6 +20,7 @@ const ManageAccount = () => {
     const [rePassword,setRePassword]=useState(undefined);
 
     const [login_msg, setLoginMsg] = useState("");
+    const [accountCreation_msg, setAccCreMsg] = useState("");
 
     const [login_status, setLoginStatus] = useState(false);
     const [loggeduserData, setLoggedUserData] = useState("")
@@ -129,7 +130,17 @@ const ManageAccount = () => {
         })
         let data=await res.json();
         console.log(data);
-        setAcc(false);
+        setAccCreMsg(data.message);
+        console.log(accountCreation_msg);
+        
+        setUsernewEmail("");
+        setUserNewName("");
+        setnewPassword("");
+        setRePassword("");
+        setTimeout(()=>setAcc(false),2000);
+        setTimeout(()=>{
+            setAccCreMsg("");
+        },3000)
     }
 
     const validateEmail = (email) => {
@@ -347,6 +358,21 @@ const ManageAccount = () => {
                     </form>
                     </div>
             </div> <br/>
+            <div>
+                    {accountCreation_msg !="" && accountCreation_msg !== "Account Created" &&
+                        <div className = 'logInbtns log-msg-red'>
+                            <p>{accountCreation_msg}</p>
+                        </div>
+                    }
+                    {accountCreation_msg !="" && accountCreation_msg === "Account Created" && 
+                        <div className = 'logInbtns log-msg-green'>
+                        <p>{accountCreation_msg}</p>
+                    </div>
+                    }
+                    <div className='logInbtns'>
+                        <p className='up-in-parent'>If no Account use <b className='up-in' onClick={()=>{setAcc(true);setLogin(false)}}>Sign-Up</b></p>    
+                    </div>
+                </div>
             <div className='logInbtns-gf'>
                     <div><GoogleLogin
                         clientId="1021090884211-u92l9v86p37r96dfq9b11q2e2asl4mol.apps.googleusercontent.com"

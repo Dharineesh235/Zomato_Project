@@ -198,6 +198,11 @@ select{
 .App-link {
     color: #61dafb;
 }
+#notebooks{
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-between;
+}
 @media only screen and (max-width: 900px){
     .locationSelector{
         display: block;
@@ -295,7 +300,8 @@ select{
     float: left;
     display: flex;
     justify-content: space-between;
-    /* background-color: whitesmoke; */
+    background-color: rgb(169, 167, 167);
+    border-radius: 10px;
 }
 .restaurantsinput{
     border: none;
@@ -320,17 +326,16 @@ select{
 }  
 .search-Icon{
     color: rgb(245, 244, 249);
-    margin-top: 10px;
-    margin-left: 15px;
-    width: 90px;
+     /* margin-top: 10px; */
+    margin-left: 15px; 
+    
     cursor: pointer;
-    border-radius: 10%;
+    /* border-radius: 10%; */
 }   
 .searchIcon-div{
     background-color: #700202;
-    padding-right: 12px;
-    align-items: center;
-    border-radius: 50%;
+    /* padding-right: 12px; */
+    border-radius: 10%;
     margin-left: 10px;
     border: 2px solid white;
 }            

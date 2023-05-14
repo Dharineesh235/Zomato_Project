@@ -55,10 +55,12 @@ export default class Wallpaper extends Component {
                     </select>
                 </div>
                 <div id="notebooks" >
+                    <div>
                     <select className="restaurantsinput"  onChange={this.setRname}>
                         <option value="0" disabled selected>Select</option>
                         {this.state.restaurants.map((item,index)=><option key={item.name} value={item.name}>{item.name}</option>)}
                     </select>
+                    </div>
                 {this.state.rName && <div className='searchIcon-div'><Link to={`/details/${this.state.rName}`}> <SearchIcon className='search-Icon'/> </Link></div>}
                 </div>
                 {/* {SearchIcon} */}
